@@ -1,0 +1,10 @@
+# -*- coding: utf-8 -*-
+# vim: ft=jinja
+
+{% import_yaml 'pimpmylog/defaults.yaml' as defaults %}
+
+{% set pimpmylog = salt['grains.filter_by'](
+    defaults,
+    merge = salt['pillar.get']('pimpmylog', {}),
+    base='pimpmylog')
+%}

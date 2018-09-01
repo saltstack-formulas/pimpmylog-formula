@@ -1,0 +1,32 @@
+# -*- coding: utf-8 -*-
+# vim: ft=yaml
+pimpmylog:
+  url: https://github.com/potsky/PimpMyLog.git
+  target: /var/www/pimpmylog
+  user: root
+  web_user: www-data
+
+  config:
+    badges:
+      http:
+        '1': info
+        '2': success
+        '3': default
+        '4': warning
+        '5': danger
+      severity:
+        alert: danger
+        crit: danger
+        debug: success
+        emerg: danger
+        error: danger
+        'fatal error': danger
+        info: success
+        Notice: info
+        notice: default
+        'parse error': danger
+        Warning: warning
+        warn: warning
+    globals: {}
+  sites: {}
+

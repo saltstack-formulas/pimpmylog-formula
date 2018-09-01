@@ -1,0 +1,47 @@
+---
+driver:
+  name: docker
+
+driver_config:
+  use_sudo: false
+  privileged: true
+  # run_command: /lib/systemd/systemd
+  # provision_command: mkdir -p /run/sshd
+
+platforms:
+  - name: debian-9
+    driver_config:
+      provision_command:
+        - apt-get install -y git
+
+provisioner:
+  name: salt_solo
+  log_level: info
+  require_chef: false
+  salt_version: latest
+  salt_copy_filter:
+    - .kitchen
+    - .git
+  is_file_root: true
+  pillars_from_files:
+    pimpmylog.sls: pillar.example
+  pillars:
+    top.sls:
+      base:
+        '*':
+          - pimpmylog
+  state_top:
+    base:
+      '*':
+        - pimpmylog
+
+verifier:
+  name: inspec
+  sudo: false
+  # cli, documentation, html, progress, json, json-min, json-rspec, junit
+  reporter: cli
+  inspec_tests:
+    - path: test/integration/default
+
+suites:
+  - name: default

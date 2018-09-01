@@ -1,0 +1,8 @@
+name: pimpmylog-formula-inspec-profile
+title: saltstack pimpmylog-formula InSpec Profile
+maintainer: Javier Bertoli
+copyright: Javier Bertoli
+copyright_email: javier@netmanagers.com.ar
+license: Apache-2.0
+summary: An InSpec Compliance Profile
+version: 0.1.0
