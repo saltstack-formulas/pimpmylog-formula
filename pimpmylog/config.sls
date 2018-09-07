@@ -4,7 +4,7 @@
 {% from "pimpmylog/map.jinja" import pimpmylog with context %}
 
 
-pimpmylog-config:
+pimpmylog_config:
   file.serialize:
     - name: {{ pimpmylog.target }}/config.user.json
     - mode: 644
